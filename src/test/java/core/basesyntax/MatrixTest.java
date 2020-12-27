@@ -3,6 +3,8 @@ package core.basesyntax;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -32,7 +34,8 @@ class MatrixTest {
     public void inputNotPowerOfTwo_ThrowsException() {
         assertThrows(IllegalArgumentException.class, () -> matrix.method("ONE", "KING"));
         assertThrows(IllegalArgumentException.class, () -> matrix.method("EIGHT---", "KING"));
-        assertThrows(IllegalArgumentException.class, () -> matrix.method("SEVENTEEN--------", "KING"));
+        assertThrows(IllegalArgumentException.class,
+                () -> matrix.method("SEVENTEEN--------", "KING"));
     }
 
     @Test
@@ -51,11 +54,14 @@ class MatrixTest {
 
     @Test
     public void checkMatrixForLetter_Correct() {
-        matrix.method(FOUR_LETTERS, FOUR_LETTERS);
-       // assertEquals("A", Matrix);
-        matrix.method(NINE_LETTERS, NINE_LETTERS);
-        //assertEquals(0, Math.sqrt(Matrix.matrixString.length()) % 1);
-        matrix.method(SIXTEEN_LETTERS, SIXTEEN_LETTERS);
-        //assertEquals(0, Math.sqrt(Matrix.matrixString.length()) % 1);
+
+    }
+
+    @Test
+    void someTest() {
+
+        assertEquals(new int[][]{{1, 2}, {1, 3}, {0, 3}, {0, 2}},
+                matrix.method("QLGNAEKIRLRNGEAE", "KING"));
+        matrix.method("RPEIVaEaCXCAYhTzcqpesBOfd", "peach");
     }
 }
